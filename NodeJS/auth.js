@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/public"));
 app.get('/test', function (req, res) {
  res.sendFile(__dirname + '/html/test.html');
 })
-
+ 
 app.get('/generateOTP', function (req, res) {
  const queryObject = url.parse(req.url,true).query;
  var phone = queryObject.phoneNum;
@@ -80,9 +80,6 @@ app.get('/validateOTP', function (req, res) {
 
 })
 
-app.get('/sendMessage/:phoneNum', function (req, res) {
-  res.end(JSON.stringify({ Success: "OK"}));
-})
 
 app.get('*', function(req, res){
 res.sendFile(__dirname + '/html/error.html');
